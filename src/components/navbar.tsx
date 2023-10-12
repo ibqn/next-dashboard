@@ -1,3 +1,6 @@
+'use client'
+
+import { cn } from '@/utils'
 import {
   BarChart,
   Calendar,
@@ -5,15 +8,19 @@ import {
   HelpCircle,
   Home,
   LineChart,
-  LucideIcon,
+  type LucideIcon,
   PieChart,
   Receipt,
   User,
   Users,
 } from 'lucide-react'
 import Link from 'next/link'
+import { usePathname } from 'next/navigation'
+import { buttonVariants } from './ui/button'
 
-type Props = {}
+type Props = {
+  collapsed: boolean
+}
 
 type NavigationLink = {
   icon: LucideIcon
@@ -93,21 +100,63 @@ const navigationList: NavigationList[] = [
 ]
 
 export const Navbar = (props: Props) => {
+  const { collapsed } = props
+
+  const pathname = usePathname()
+
   return (
     <nav>
       {navigationList.map((navigation, index) => {
         const { category, links } = navigation
+
         return (
           <div key={index}>
-            {category && <h5 className="my-4">{category}</h5>}
-            <ul>
+            {category && (
+              <h5
+                className={cn(
+                  'dark:text-grau-300 my-4 text-sm font-light text-gray-900',
+                  collapsed && 'text-center'
+                )}
+              >
+                {category}
+              </h5>
+            )}
+            <ul
+              className={cn(
+                'flex flex-col',
+                collapsed ? 'items-center' : 'gap-2 px-2'
+              )}
+            >
               {links.map((navigationLink) => {
                 const { link, name, icon: Icon } = navigationLink
+
                 return (
                   <li key={link}>
-                    <Link href={link} className="flex flex-row items-center">
-                      <Icon className="mr-2 h-4 w-4" />
-                      {name}
+                    <Link
+                      href={link}
+                      className={cn(
+                        collapsed && buttonVariants({ variant: 'ghost' }),
+                        'leading flex flex-row items-center text-xs'
+                      )}
+                    >
+                      <Icon
+                        className={cn(
+                          'h-4 w-4',
+                          !collapsed && 'mr-2',
+                          link === pathname &&
+                            'text-pink-800 dark:text-pink-400'
+                        )}
+                      />
+                      {!collapsed && (
+                        <span
+                          className={cn(
+                            link === pathname &&
+                              'text-pink-800 dark:text-pink-400'
+                          )}
+                        >
+                          {name}
+                        </span>
+                      )}
                     </Link>
                   </li>
                 )
