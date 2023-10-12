@@ -1,7 +1,9 @@
-export default function Home() {
+import { Heading } from '@/components/heading'
+
+export default function Dashboard() {
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24">
-      <div>main</div>
+    <main className="flex min-h-screen flex-col justify-between p-5">
+      <Heading title="Dashboard" description="Welcome to your dashboard" />
     </main>
   )
 }
