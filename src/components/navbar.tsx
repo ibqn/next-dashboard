@@ -124,7 +124,7 @@ export const Navbar = (props: Props) => {
             <ul
               className={cn(
                 'flex flex-col',
-                collapsed ? 'items-center' : 'gap-2 px-2'
+                collapsed ? 'items-center' : 'gap-3 px-2'
               )}
             >
               {links.map((navigationLink) => {

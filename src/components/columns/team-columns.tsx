@@ -3,7 +3,6 @@
 import { ColumnDef } from '@tanstack/react-table'
 import {
   ArrowUpDown,
-  Shield,
   ShieldCheck,
   ShieldEllipsis,
   UnlockKeyhole,
@@ -12,6 +11,10 @@ import { Button } from '@/components/ui/button'
 import { TeamAccess, type TeamColumn } from '@/types'
 
 export const teamColumns: ColumnDef<TeamColumn>[] = [
+  {
+    accessorKey: 'id',
+    header: 'ID',
+  },
   {
     accessorKey: 'name',
     header: ({ column }) => {
@@ -48,19 +51,22 @@ export const teamColumns: ColumnDef<TeamColumn>[] = [
     accessorKey: 'age',
     header: ({ column }) => {
       return (
-        <Button
-          variant="ghost"
-          onClick={() => column.toggleSorting(column.getIsSorted() === 'asc')}
-        >
-          Age
-          <ArrowUpDown className="ml-2 h-4 w-4" />
-        </Button>
+        <div className="flex justify-center">
+          <Button
+            variant="ghost"
+            onClick={() => column.toggleSorting(column.getIsSorted() === 'asc')}
+          >
+            Age
+            <ArrowUpDown className="ml-2 h-4 w-4" />
+          </Button>
+        </div>
       )
     },
+    cell: ({ row }) => <div className="text-center">{row.getValue('age')}</div>,
   },
   {
     accessorKey: 'access',
-    header: 'Access Level',
+    header: () => <div className="text-center">Access Level</div>,
     cell: ({ row }) => {
       const access = row.original.access
 
