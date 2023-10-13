@@ -114,7 +114,7 @@ export const Navbar = (props: Props) => {
             {category && (
               <h5
                 className={cn(
-                  'dark:text-grau-300 my-4 text-sm font-light text-gray-900',
+                  'my-4 text-sm font-light text-gray-900 dark:text-grau-300',
                   collapsed && 'text-center'
                 )}
               >
@@ -144,14 +144,14 @@ export const Navbar = (props: Props) => {
                           'h-4 w-4',
                           !collapsed && 'mr-2',
                           link === pathname &&
-                            'text-pink-800 dark:text-pink-400'
+                            'text-cyan-500 dark:text-pink-400'
                         )}
                       />
                       {!collapsed && (
                         <span
                           className={cn(
                             link === pathname &&
-                              'text-pink-800 dark:text-pink-400'
+                              'text-cyan-500 dark:text-pink-400'
                           )}
                         >
                           {name}
