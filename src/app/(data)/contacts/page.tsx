@@ -1,8 +1,8 @@
-import { teamColumns } from '@/components/columns'
+import { contactsColumns } from '@/components/columns'
 import { DataTable } from '@/components/data-table'
 import { Heading } from '@/components/heading'
 import { Separator } from '@/components/ui/separator'
-import { teamData } from '@/data/team-data'
+import { contactsData } from '@/data'
 
 export default function Contacts() {
   return (
@@ -14,7 +14,11 @@ export default function Contacts() {
 
       <Separator />
 
-      <DataTable searchKey="name" columns={teamColumns} data={teamData} />
+      <DataTable
+        searchKey="name"
+        columns={contactsColumns}
+        data={contactsData}
+      />
     </main>
   )
 }

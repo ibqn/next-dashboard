@@ -2,7 +2,7 @@ import { teamColumns } from '@/components/columns'
 import { DataTable } from '@/components/data-table'
 import { Heading } from '@/components/heading'
 import { Separator } from '@/components/ui/separator'
-import { teamData } from '@/data/team-data'
+import { teamData } from '@/data'
 
 export default function Team() {
   return (
