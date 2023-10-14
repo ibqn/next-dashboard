@@ -22,7 +22,6 @@ import {
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { useState } from 'react'
-import { Divide } from 'lucide-react'
 
 interface DataTableProps<TData, TValue> {
   searchKey: string
@@ -121,7 +120,7 @@ export function DataTable<TData, TValue>({
       </div>
 
       <div className="flex flex-row justify-between py-4">
-        {table.getColumn('select') != undefined ? (
+        {table.getColumn('select') !== undefined ? (
           <div className="flex-1 text-sm text-muted-foreground">
             {table.getFilteredSelectedRowModel().rows.length} of{' '}
             {table.getFilteredRowModel().rows.length} row(s) selected.
