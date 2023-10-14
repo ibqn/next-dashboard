@@ -5,6 +5,7 @@ export type ContactsColumn = {
   phone: string
   email: string
   address: string
+  city: string
   zipCode: string
   registrarId: number
 }

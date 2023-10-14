@@ -59,4 +59,16 @@ export const contactsColumns: ColumnDef<ContactsColumn>[] = [
     },
     cell: ({ row }) => <div className="text-center">{row.getValue('age')}</div>,
   },
+  {
+    accessorKey: 'address',
+    header: 'Address',
+  },
+  {
+    accessorKey: 'city',
+    header: 'City',
+  },
+  {
+    accessorKey: 'zipCode',
+    header: 'Zip Code',
+  },
 ]

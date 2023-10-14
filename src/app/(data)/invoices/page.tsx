@@ -1,8 +1,8 @@
-import { teamColumns } from '@/components/columns'
+import { invoicesColumns } from '@/components/columns'
 import { DataTable } from '@/components/data-table'
 import { Heading } from '@/components/heading'
 import { Separator } from '@/components/ui/separator'
-import { teamData } from '@/data/team-data'
+import { invoicesData } from '@/data'
 
 export default function Invoices() {
   return (
@@ -11,7 +11,11 @@ export default function Invoices() {
 
       <Separator />
 
-      <DataTable searchKey="name" columns={teamColumns} data={teamData} />
+      <DataTable
+        searchKey="name"
+        columns={invoicesColumns}
+        data={invoicesData}
+      />
     </main>
   )
 }
