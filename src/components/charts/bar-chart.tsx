@@ -2,6 +2,8 @@
 
 import { type BarChartData } from '@/data'
 import { ResponsiveBar } from '@nivo/bar'
+import { useTheme } from 'next-themes'
+import { useMemo } from 'react'
 
 type Props = {
   data: BarChartData[]
@@ -10,8 +12,52 @@ type Props = {
 export const BarChart = (props: Props) => {
   const { data } = props
 
+  const { resolvedTheme } = useTheme()
+
+  const fillColor = useMemo(
+    () => (resolvedTheme === 'light' ? '#020817' : '#f8fafc'),
+    [resolvedTheme]
+  )
+  const backgroundColor = useMemo(
+    () => (resolvedTheme === 'light' ? '#ffffff' : '#020817'),
+    [resolvedTheme]
+  )
+
   return (
     <ResponsiveBar
+      theme={{
+        axis: {
+          domain: {
+            line: {
+              stroke: fillColor,
+            },
+          },
+          legend: {
+            text: {
+              fill: fillColor,
+            },
+          },
+          ticks: {
+            line: {
+              stroke: fillColor,
+              strokeWidth: 1,
+            },
+            text: {
+              fill: fillColor,
+            },
+          },
+        },
+        legends: {
+          text: {
+            fill: fillColor,
+          },
+        },
+        tooltip: {
+          container: {
+            background: backgroundColor,
+          },
+        },
+      }}
       data={data}
       keys={['hot dog', 'burger', 'sandwich', 'kebab', 'fries', 'donut']}
       indexBy="country"
