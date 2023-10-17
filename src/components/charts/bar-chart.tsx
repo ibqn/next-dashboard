@@ -7,10 +7,11 @@ import { useMemo } from 'react'
 
 type Props = {
   data: BarChartData[]
+  onDashboard?: boolean
 }
 
 export const BarChart = (props: Props) => {
-  const { data } = props
+  const { data, onDashboard = false } = props
 
   const { resolvedTheme } = useTheme()
 
@@ -111,7 +112,7 @@ export const BarChart = (props: Props) => {
           tickSize: 5,
           tickPadding: 5,
           tickRotation: 0,
-          legend: 'country',
+          legend: onDashboard ? undefined : 'country',
           legendPosition: 'middle',
           legendOffset: 32,
         }}
@@ -119,7 +120,7 @@ export const BarChart = (props: Props) => {
           tickSize: 5,
           tickPadding: 5,
           tickRotation: 0,
-          legend: 'food',
+          legend: onDashboard ? undefined : 'food',
           legendPosition: 'middle',
           legendOffset: -40,
         }}
