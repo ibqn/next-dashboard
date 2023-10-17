@@ -12,14 +12,14 @@ import { cn } from '@/utils'
 type Props = {}
 
 export const Sidebar = (props: Props) => {
-  const [open, setOpen] = useState(false)
+  const [open, setOpen] = useState(true)
 
   const toggle = useCallback(() => setOpen(!open), [open])
 
   return (
     <div
       className={cn(
-        'bg-sidebar flex min-h-screen flex-col gap-8 px-4 py-4 transition-all duration-300',
+        'flex min-h-screen flex-col gap-8 bg-sidebar px-4 py-4 transition-all duration-300',
         open ? 'min-w-[200px]' : 'items-center'
       )}
     >
