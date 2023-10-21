@@ -6,7 +6,7 @@ import { pieChartData } from '@/data'
 export default function PieChartPage() {
   return (
     <main className="flex min-h-[80vh] flex-col p-5">
-      <Heading title="Bar Chart" description="Food consumption" />
+      <Heading title="Bar Chart" description="fast food consumption" />
 
       <Separator />
 

@@ -24,7 +24,7 @@ export const PieChart = (props: Props) => {
     [resolvedTheme]
   )
   const textColor = useMemo(
-    () => (resolvedTheme === 'light' ? '#f8fafc' : '#ffffff'),
+    () => (resolvedTheme === 'light' ? '#020817' : '#ffffff'),
     [resolvedTheme]
   )
 
@@ -34,7 +34,7 @@ export const PieChart = (props: Props) => {
         theme={{
           labels: {
             text: {
-              fill: textColor,
+              color: textColor,
             },
           },
           axis: {
@@ -63,8 +63,7 @@ export const PieChart = (props: Props) => {
           modifiers: [['darker', 0.2]],
         }}
         arcLinkLabelsSkipAngle={10}
-        arcLinkLabelsTextColor={backgroundColor}
-        // arcLinkLabelsTextColor={{ theme: 'labels.text.fill' }}
+        arcLinkLabelsTextColor={{ theme: 'labels.text.color' }}
         arcLinkLabelsThickness={2}
         arcLinkLabelsColor={{ from: 'color' }}
         arcLabelsSkipAngle={10}
