@@ -10,3 +10,5 @@ export {
   type BarChartKey,
   type BarChartColor,
 } from './barchar-data'
+
+export { pieChartData, type PieChartData } from './pie-data'
