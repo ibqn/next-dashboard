@@ -12,3 +12,4 @@ export {
 } from './barchar-data'
 
 export { pieChartData, type PieChartData } from './pie-data'
+export { lineChartData, type LineChartData } from './line-data'
